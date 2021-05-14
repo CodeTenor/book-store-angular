@@ -7,6 +7,8 @@ import { MenuBarComponent } from './view/layout/menu-bar/menu-bar.component';
 import { HomeComponent } from './view/home/home.component';
 import { SearchPageComponent } from './view/search-page/search-page.component';
 import { AppRoutingModule } from './app-routing.module';
+import { HeaderSectionComponent } from './view/layout/header-section/header-section.component';
+import { SideBarComponent } from './view/layout/side-bar/side-bar.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { AppRoutingModule } from './app-routing.module';
     LayoutComponent,
     MenuBarComponent,
     HomeComponent,
-    SearchPageComponent
+    SearchPageComponent,
+    HeaderSectionComponent,
+    SideBarComponent
   ],
   imports: [
     BrowserModule,
