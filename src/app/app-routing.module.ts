@@ -7,7 +7,12 @@ import { SearchPageComponent } from './view/search-page/search-page.component';
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-  { path: 'search', component: SearchPageComponent },
+  { path: 'search', component: SearchPageComponent,
+    // children:
+    // [
+    //   { path: 'book', component: BookDetailPageComponent }
+    // ]
+  },
   { path: 'book', component: BookDetailPageComponent },
   { path: '**', component: HomeComponent }
 ];

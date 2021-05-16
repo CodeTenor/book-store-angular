@@ -9,6 +9,8 @@
     </div>
 </form>
 
+<div class="cleaner_with_height">&nbsp;</div>
+
 <div *ngFor="let book of books">
     <div *ngIf="book !== undefined" class="templatemo_product_box">
         <h1>{{book.title}} <span>(by {{book.author_name}})</span></h1>
@@ -27,13 +29,3 @@
 <div *ngIf="booksLoading" class="relative">
     <app-spinner></app-spinner>
 </div>
-<!-- <div *ngIf="paginationBooks !== undefined" class="pagination">
-    <pagination-controls previousLabel="Prev" nextLabel="Next" responsive="true" (pageChange)="handlePageChange($event)"></pagination-controls>
-</div> -->
-
-<!-- | paginate : {
-  itemsPerPage: pageSize,
-  currentPage: page,
-  totalItems: count
-};
-let i = index" -->

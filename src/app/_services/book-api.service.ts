@@ -12,9 +12,17 @@ export class BookApiService {
   constructor(private http: HttpClient) { }
 
   searchBooks(query: string): Observable<any> {
-    //http://openlibrary.org/search.json?q=the+lord+of+the+rings
-
     const searchBooks = `${this.baseUri}/search.json?q=${query.replace(' ', '+')}/`;
     return this.http.get(searchBooks);
+  }
+
+  getBookDetailsByIsbn(isbn: string): Observable<any> {
+    const bookByIsbn = `${this.baseUri}/books.json?bibkeys=ISBN:${isbn}&format=json&jscmd=details`;
+    return this.http.get(bookByIsbn);
+  }
+
+  getBookDetailsByWork(work: string): Observable<any> {
+    const bookByWork = `${this.baseUri}${work}.json`;
+    return this.http.get(bookByWork);
   }
 }

@@ -16,11 +16,6 @@ export class SearchPageComponent implements OnInit {
   paginationBooks: BookSearch[];
   booksLoading = false;
 
-  // pagination
-  page = 1;
-  count = 0;
-  pageSize = 10;
-
   constructor(private bookApiService: BookApiService,
               private formbuilder: FormBuilder,
               private bookSearchAdaptor: BookSearchAdaptor,
@@ -40,16 +35,10 @@ export class SearchPageComponent implements OnInit {
       this.bookApiService.searchBooks(this.searchForm.controls.searchPhrase.value).subscribe(
         result => {
           this.books = result.docs.map(x => this.bookSearchAdaptor.adapt(x));
-          this.paginationBooks = this.books.splice(this.page - 1, 11);
           this.booksLoading = false;
         }
       )
     }
-  }
-
-  handlePageChange(event): void {
-    this.page = event;
-    this.paginationBooks = this.books.slice(this.page - 1 , 11);
   }
 
   getCover(cover_id: string): string {
