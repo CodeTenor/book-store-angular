@@ -1,7 +1,35 @@
-<form [formGroup]="searchForm" name="form" class="form-validation mt-40">
+<form [formGroup]="searchForm" (ngSubmit)="searchBook()" name="form" class="flex">
     <div class="form-group">
         <input type="text" placeholder="Search Book" formControlName="searchPhrase">
         <div *ngIf="searchForm.controls['searchPhrase'].touched && !searchForm.controls['searchPhrase'].valid">
         </div>
     </div>
+    <div class="form-group">
+        <button type="submit" class="button" style="margin-left:5px" [disabled]="!searchForm.valid">Search</button>
+    </div>
 </form>
+
+<div *ngFor="let book of books">
+    <div *ngIf="book !== undefined" class="templatemo_product_box">
+        <h1>{{book.title}} <span>(by {{book.author_name}})</span></h1>
+        <img style="height: 100px; width: 80px;" [src]="getCover(book.cover_i)" />
+        <div class="product_info">
+            <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p> -->
+            <!-- <h3>$45</h3> -->
+            <div class="buy_now_button"><a href="subpage.html">Buy Now</a></div>
+            <div class="detail_button"><a href="subpage.html">Detail</a></div>
+        </div>
+        <div class="cleaner">&nbsp;</div>
+    </div>
+
+</div>
+<!-- <div *ngIf="paginationBooks !== undefined" class="pagination">
+    <pagination-controls previousLabel="Prev" nextLabel="Next" responsive="true" (pageChange)="handlePageChange($event)"></pagination-controls>
+</div> -->
+
+<!-- | paginate : {
+  itemsPerPage: pageSize,
+  currentPage: page,
+  totalItems: count
+};
+let i = index" -->

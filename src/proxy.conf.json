@@ -1,0 +1,7 @@
+{
+    "/api/*": {
+        "target": "https://openlibrary.org",
+        "secure": true,
+        "logLevel": "debug"
+    }
+}

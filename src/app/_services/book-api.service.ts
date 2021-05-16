@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -7,13 +7,14 @@ import { Observable } from 'rxjs';
 })
 export class BookApiService {
 
-  protected baseUri = 'https://openlibrary.org/';
+  protected baseUri = 'http://openlibrary.org';
 
   constructor(private http: HttpClient) { }
 
   searchBooks(query: string): Observable<any> {
     //http://openlibrary.org/search.json?q=the+lord+of+the+rings
-    const searchBooks = `${this.baseUri}/search${query.replace(' ', '+')}`;
+
+    const searchBooks = `${this.baseUri}/search.json?q=${query.replace(' ', '+')}/`;
     return this.http.get(searchBooks);
   }
 }

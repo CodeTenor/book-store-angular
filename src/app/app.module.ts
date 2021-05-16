@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 import { AppComponent } from './app.component';
 import { LayoutComponent } from './view/layout/layout/layout.component';
@@ -14,6 +15,7 @@ import { SideBarComponent } from './view/layout/side-bar/side-bar.component';
 
 import { BookApiService } from './_services/book-api.service';
 import { BookSearchAdaptor } from './_models/book-search-adaptor';
+import { BookDetailPageComponent } from './view/book-detail-page/book-detail-page.component';
 
 @NgModule({
   declarations: [
@@ -23,14 +25,16 @@ import { BookSearchAdaptor } from './_models/book-search-adaptor';
     HomeComponent,
     SearchPageComponent,
     HeaderSectionComponent,
-    SideBarComponent
+    SideBarComponent,
+    BookDetailPageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxPaginationModule
   ],
   providers: [
     BookApiService,

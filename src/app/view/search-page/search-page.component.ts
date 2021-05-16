@@ -12,7 +12,13 @@ export class SearchPageComponent implements OnInit {
 
   searchForm: FormGroup;
   books: BookSearch[];
+  paginationBooks: BookSearch[];
   booksLoading = true;
+
+  // pagination
+  page = 1;
+  count = 0;
+  pageSize = 10;
 
   constructor(private bookApiService: BookApiService,
               private formbuilder: FormBuilder,
@@ -32,9 +38,23 @@ export class SearchPageComponent implements OnInit {
       this.bookApiService.searchBooks(this.searchForm.controls.searchPhrase.value).subscribe(
         result => {
           this.books = result.docs.map(x => this.bookSearchAdaptor.adapt(x));
+          this.paginationBooks = this.books.splice(this.page - 1, 11);
           this.booksLoading = false;
         }
       )
+    }
+  }
+
+  handlePageChange(event): void {
+    this.page = event;
+    this.paginationBooks = this.books.slice(this.page - 1 , 11);
+  }
+
+  getCover(cover_id: string): string {
+    if (cover_id === undefined) {
+      return 'assets/images/no-cover.png';
+    } else {
+      return `https://covers.openlibrary.org/b/id/${cover_id}-M.jpg`;
     }
   }
 }
