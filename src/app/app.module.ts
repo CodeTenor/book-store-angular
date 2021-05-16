@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { LayoutComponent } from './view/layout/layout/layout.component';
@@ -12,6 +13,7 @@ import { HeaderSectionComponent } from './view/layout/header-section/header-sect
 import { SideBarComponent } from './view/layout/side-bar/side-bar.component';
 
 import { BookApiService } from './_services/book-api.service';
+import { BookSearchAdaptor } from './_models/book-search-adaptor';
 
 @NgModule({
   declarations: [
@@ -26,10 +28,13 @@ import { BookApiService } from './_services/book-api.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
-    BookApiService
+    BookApiService,
+    BookSearchAdaptor
   ],
   bootstrap: [AppComponent]
 })

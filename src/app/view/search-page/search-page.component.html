@@ -1,1 +1,7 @@
-<p>search-page works!</p>
+<form [formGroup]="searchForm" name="form" class="form-validation mt-40">
+    <div class="form-group">
+        <input type="text" placeholder="Search Book" formControlName="searchPhrase">
+        <div *ngIf="searchForm.controls['searchPhrase'].touched && !searchForm.controls['searchPhrase'].valid">
+        </div>
+    </div>
+</form>
