@@ -16,6 +16,7 @@ import { SideBarComponent } from './view/layout/side-bar/side-bar.component';
 import { BookApiService } from './_services/book-api.service';
 import { BookSearchAdaptor } from './_models/book-search-adaptor';
 import { BookDetailPageComponent } from './view/book-detail-page/book-detail-page.component';
+import { SpinnerComponent } from './shared/spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { BookDetailPageComponent } from './view/book-detail-page/book-detail-pag
     SearchPageComponent,
     HeaderSectionComponent,
     SideBarComponent,
-    BookDetailPageComponent
+    BookDetailPageComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,

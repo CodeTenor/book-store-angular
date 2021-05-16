@@ -16,12 +16,16 @@
         <div class="product_info">
             <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p> -->
             <!-- <h3>$45</h3> -->
-            <div class="buy_now_button"><a href="subpage.html">Buy Now</a></div>
-            <div class="detail_button"><a href="subpage.html">Detail</a></div>
+            <!-- <div class="buy_now_button"><a href="subpage.html">Buy Now</a></div> -->
+            <div class="detail_button"><a (click)="navigateToBookDetails(book)">Detail</a></div>
         </div>
         <div class="cleaner">&nbsp;</div>
     </div>
 
+</div>
+
+<div *ngIf="booksLoading" class="relative">
+    <app-spinner></app-spinner>
 </div>
 <!-- <div *ngIf="paginationBooks !== undefined" class="pagination">
     <pagination-controls previousLabel="Prev" nextLabel="Next" responsive="true" (pageChange)="handlePageChange($event)"></pagination-controls>
