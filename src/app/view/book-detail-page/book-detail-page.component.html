@@ -1,13 +1,15 @@
-<h1>Book Title <span>(by author name)</span></h1>
-<div class="image_panel"><img src="assets/images/templatemo_image_02.jpg" alt="CSS Template" width="100" height="150" /></div>
-<h2>Read the lessons - Watch the videos - Do the exercises</h2>
-<ul>
-    <li>By Deke <a href="#">McClelland</a></li>
-    <li>{{bookWork.published_date}}</li>
-    <li>Pages: 498</li>
-    <li>ISBN: {{isbn}}</li>
-</ul>
+<div *ngIf="isLoading === 2">
+    <h1>{{bookWork.title}} <span>(by author name)</span></h1>
+    <div class="image_panel"><img [src]="thumbNail(bookDetail.thumbnail_url)" alt="CSS Template" width="100" height="150" /></div>
+    <h2>Read the lessons - Watch the videos - Do the exercises</h2>
+    <ul>
+        <li>By {{authorFirstName(bookDetail.author_name)}} <a [href]="authorUrl(bookDetail.author_url)">{{authorLastName(bookDetail.author_name)}}</a></li>
+        <li>{{bookWork.published_date}}</li>
+        <li>Pages: {{bookDetail.number_of_pages}}</li>
+        <li>ISBN: {{isbn}}</li>
+    </ul>
 
-<p>{{bookWork.description}}</p>
+    <p>{{bookWork.description}}</p>
 
-<div class="cleaner_with_height">&nbsp;</div>
+    <div class="cleaner_with_height">&nbsp;</div>
+</div>

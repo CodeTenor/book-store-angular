@@ -17,7 +17,7 @@ export class BookApiService {
   }
 
   getBookDetailsByIsbn(isbn: string): Observable<any> {
-    const bookByIsbn = `${this.baseUri}/books.json?bibkeys=ISBN:${isbn}&format=json&jscmd=details`;
+    const bookByIsbn = `${this.baseUri}/api/books?bibkeys=ISBN:${isbn}&format=json&jscmd=details`;
     return this.http.get(bookByIsbn);
   }
 
